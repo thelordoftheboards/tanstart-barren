@@ -1,0 +1,15 @@
+name: tanstart-barren-standalone-db
+
+services:
+  db:
+    image: pgvector/pgvector:pg18
+    env_file:
+      - standalone-db.env
+    ports:
+      - "5440:5432"
+    volumes:
+      - postgres_data_tanstart_barren:/var/lib/postgresql
+    restart: unless-stopped
+
+volumes:
+  postgres_data_tanstart_barren:
