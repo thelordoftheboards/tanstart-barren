@@ -1,16 +1,23 @@
 # [React TanStarter](https://github.com/dotnize/react-tanstarter)
 
-> [!NOTE]
-> This project is copy of [React TanStarter](https://github.com/dotnize/react-tanstarter) with some code introduced from [Modern Full-Stack Boilerplate](https://github.com/CarlosZiegler/fullstack-start-template).
+A starter template for 🏝️ TanStack Start.
 
-A minimal starter template for 🏝️ TanStack Start.
-
+- [Bun](https://bun.com/) runtime
 - [React 19](https://react.dev) + [React Compiler](https://react.dev/learn/react-compiler)
-- TanStack [Start](https://tanstack.com/start/latest) + [Router](https://tanstack.com/router/latest) + [Query](https://tanstack.com/query/latest)
+- [Biome](https://biomejs.dev/formatter/)
+- TanStack:
+  - [Start](https://tanstack.com/start/latest)
+  - [Router](https://tanstack.com/router/latest)
+  - [Query](https://tanstack.com/query/latest)
+  - [Forms](https://tanstack.com/form/latest)
+  - [DevTools](https://tanstack.com/devtools/latest)
 - [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/) + [Base UI](https://base-ui.com/)
 - [Vite 8](https://vite.dev/blog/announcing-vite8-beta) (beta) + [Nitro v3](https://v3.nitro.build/) (nightly)
-- [Drizzle ORM](https://orm.drizzle.team/) + PostgreSQL
+- [Drizzle ORM](https://orm.drizzle.team/) + [PostgreSQL](https://www.postgresql.org/)
 - [Better Auth](https://www.better-auth.com/)
+
+> [!NOTE]
+> This project is a derivative of [React TanStarter by dotnize](https://github.com/dotnize/react-tanstarter) and [Modern Full-Stack Boilerplate by CarlosZiegler](https://github.com/CarlosZiegler/fullstack-start-template).
 
 ## Getting Started
 

@@ -4,7 +4,7 @@ import * as z from 'zod';
 export const env = createEnv({
   server: {
     DATABASE_URL: z.url(),
-    VITE_BASE_URL: z.url().default('http://localhost:8088'),
+    SERVER_URL: z.url().default('http://localhost:8088'),
     BETTER_AUTH_SECRET: z.string().min(1),
 
     // OAuth2 providers, optional, update as needed

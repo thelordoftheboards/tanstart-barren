@@ -1,16 +1,12 @@
 /// <reference types="vite/client" />
+
 import type { QueryClient } from '@tanstack/react-query';
 import { createRootRouteWithContext, HeadContent, Outlet, Scripts } from '@tanstack/react-router';
-
-import { TanStackDevtools } from '@tanstack/react-devtools';
-import { ReactQueryDevtoolsPanel } from '@tanstack/react-query-devtools';
-import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools';
-
-import { authQueryOptions, type AuthQueryResult } from '~/lib/auth/queries';
-import appCss from '~/styles.css?url';
-
+import React from 'react';
 import { ThemeProvider } from '~/components/theme-provider';
 import { Toaster } from '~/components/ui/sonner';
+import { type AuthQueryResult, authQueryOptions } from '~/lib/auth/queries';
+import appCss from '~/styles.css?url';
 
 export const Route = createRootRouteWithContext<{
   queryClient: QueryClient;
@@ -55,6 +51,11 @@ function RootComponent() {
   );
 }
 
+const TanstackDevTools =
+  process.env.NODE_ENV === 'development'
+    ? React.lazy(async () => await import('../components/tanstack-dev-tools'))
+    : () => null;
+
 function RootDocument({ children }: { readonly children: React.ReactNode }) {
   return (
     // suppress since we're updating the "dark" class in ThemeProvider
@@ -68,18 +69,7 @@ function RootDocument({ children }: { readonly children: React.ReactNode }) {
           <Toaster richColors />
         </ThemeProvider>
 
-        <TanStackDevtools
-          plugins={[
-            {
-              name: 'TanStack Query',
-              render: <ReactQueryDevtoolsPanel />,
-            },
-            {
-              name: 'TanStack Router',
-              render: <TanStackRouterDevtoolsPanel />,
-            },
-          ]}
-        />
+        <TanstackDevTools />
 
         <Scripts />
       </body>

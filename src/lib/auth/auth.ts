@@ -3,13 +3,13 @@ import { drizzleAdapter } from 'better-auth/adapters/drizzle';
 import { betterAuth } from 'better-auth/minimal';
 import { tanstackStartCookies } from 'better-auth/tanstack-start';
 import { v7 as uuidv7 } from 'uuid';
-import { env } from '~/env/server';
 import { db } from '~/lib/db';
 import * as schema from '~/lib/db/schema/auth.schema';
+import { env } from '~/lib/env.server';
 
 const getAuthConfig = createServerOnlyFn(() =>
   betterAuth({
-    baseURL: env.VITE_BASE_URL,
+    baseURL: env.SERVER_URL,
     telemetry: {
       enabled: false,
     },

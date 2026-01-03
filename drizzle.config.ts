@@ -1,5 +1,5 @@
 import type { Config } from "drizzle-kit";
-import { env } from "~/env/server";
+import { env } from "~/lib/env.server";
 const node_env = process.env.NODE_ENV || 'development'
 
 export default {
