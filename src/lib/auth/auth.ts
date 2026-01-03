@@ -2,9 +2,10 @@ import { createServerOnlyFn } from '@tanstack/react-start';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
 import { betterAuth } from 'better-auth/minimal';
 import { tanstackStartCookies } from 'better-auth/tanstack-start';
-
+import { v7 as uuidv7 } from 'uuid';
 import { env } from '~/env/server';
 import { db } from '~/lib/db';
+import * as schema from '~/lib/db/schema/auth.schema';
 
 const getAuthConfig = createServerOnlyFn(() =>
   betterAuth({
@@ -14,7 +15,15 @@ const getAuthConfig = createServerOnlyFn(() =>
     },
     database: drizzleAdapter(db, {
       provider: 'pg',
+      schema,
     }),
+
+    advanced: {
+      database: {
+        // https://www.better-auth.com/docs/concepts/database#option-1-let-database-generate-ids
+        generateId: () => uuidv7(),
+      },
+    },
 
     // https://www.better-auth.com/docs/integrations/tanstack#usage-tips
     plugins: [tanstackStartCookies()],
