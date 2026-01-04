@@ -15,6 +15,7 @@ node_modules
 .output
 .wrangler
 .netlify
+devconfig
 dist
 /build/
 /api/

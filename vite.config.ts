@@ -13,7 +13,7 @@ export default defineConfig({
     devtools(),
     tanstackStart(),
     // https://tanstack.com/start/latest/docs/framework/react/guide/hosting
-    nitro(),
+    nitro({ preset: 'bun' }),
     viteReact({
       // https://react.dev/learn/react-compiler
       babel: {
@@ -29,4 +29,7 @@ export default defineConfig({
     }),
     tailwindcss(),
   ],
+  server: {
+    allowedHosts: [process.env.SERVER_HOST ?? 'localhost'],
+  },
 });

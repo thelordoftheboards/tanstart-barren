@@ -1,6 +1,8 @@
-# [React TanStarter](https://github.com/dotnize/react-tanstarter)
+# [TanStart Barren](https://github.com/thelordoftheboards/tanstart-barren)
 
-A starter template for 🏝️ TanStack Start.
+
+
+## Boilerplate for 🏝️ TanStack Start.
 
 - [Bun](https://bun.com/) runtime
 - [React 19](https://react.dev) + [React Compiler](https://react.dev/learn/react-compiler)
@@ -19,7 +21,11 @@ A starter template for 🏝️ TanStack Start.
 > [!NOTE]
 > This project is a derivative of [React TanStarter by dotnize](https://github.com/dotnize/react-tanstarter) and [Modern Full-Stack Boilerplate by CarlosZiegler](https://github.com/CarlosZiegler/fullstack-start-template).
 
+
+
 ## Development Setup
+
+
 
 ### Clone This Repository
 
@@ -27,11 +33,13 @@ A starter template for 🏝️ TanStack Start.
 git clone https://github.com/thelordoftheboards/tanstart-barren.git
 ```
 
+
 ### Install Dependencies
 
 ```bash
 bun i
 ```
+
 
 ### Create a Database
 
@@ -41,9 +49,12 @@ Postgres 18 with vector extensions is required. Included is a docker compose to 
 bun compose:db:up
 ```
 
+
 ### Create an `.env` File
 
 Use example [`doc/.env.example`](doc/.env.example).
+
+
 
 ### Push the schema to your database with drizzle-kit:
 
@@ -53,6 +64,8 @@ bun db push
 
 [Drizzle Migrations](https://orm.drizzle.team/docs/migrations).
 
+
+
 ### Run the development server:
 
 ```bash
@@ -61,11 +74,15 @@ bun dev
 
 The development server should now be running at [http://localhost:8088](http://localhost:8088).
 
+
+
 ## Deploying to production
 
 The [vite config](./vite.config.ts#L12-L13) is currently configured to use [Nitro v3](https://v3.nitro.build) (nightly) to deploy on Vercel, but can be easily switched to other providers.
 
 Refer to the [TanStack Start hosting docs](https://tanstack.com/start/latest/docs/framework/react/guide/hosting) for deploying to other platforms.
+
+
 
 ## Issue watchlist
 
@@ -75,24 +92,46 @@ Refer to the [TanStack Start hosting docs](https://tanstack.com/start/latest/doc
 - [Nitro v3 nightly](https://v3.nitro.build/docs/nightly) - The template is configured with Nitro v3 nightly by default.
 
 
+
 ## Scripts
 
 We use **bun** by default, but you can modify these scripts in [package.json](./package.json) to use your preferred package manager.
 
-- **`auth:generate`** - Regenerate the [auth db schema](./src/lib/db/schema/auth.schema.ts) if you've made changes to your Better Auth [config](./src/lib/auth/auth.ts). Notice that the IDs have been changed to uuid manually, and if you want to keep them that way you would have to re-do the process.
+- **`auth:generate`** - Regenerate the [auth db schema](./src/lib/db/schema/auth.schema.ts) if you've made changes to your [Better Auth config](./src/lib/auth/auth.ts). Notice that the IDs have been changed to uuid manually, and if you want to keep them that way you would have to re-do the process.
 - **`db`** - Run [drizzle-kit](https://orm.drizzle.team/docs/kit-overview) commands. (e.g. `bun db generate`, `bun db studio`)
 - **`ui`** - The shadcn/ui CLI. (e.g. `bun ui add button`)
 - **`format`**, **`lint`**, **`check-types`** - Run biome, and check TypeScript types respectively.
   - **`check`** - Run all three above. (e.g. `bun check`)
+
+
+
+## Using Local Tunnel
+
+In order to expose the development server over https to the world using [localtunnel](https://theboroer.github.io/localtunnel-www/) update [devconfig/localtunnel-settings.sh](./devconfig/localtunnel-settings.sh) using the example from [localtunnel-settings.sh.example](./doc/localtunnel-settings.sh.example) :
+
+- `LOCALTUNNEL_SUBDOMAIN` is the subdomain argument that is passed to local tunnel. Notice that if it is taken localtunnel might provide an alternative subdomain.
+- `SERVER_HOST` is the URL where it has the subdomain prepended, essentially `${LOCALTUNNEL_SUBDOMAIN}.loca.lt`.
+
+Use one of the following scripts:
+
+- **`lt`** - serve through localtunnel in a separate process.
+- **`dev-lt`** - run development concurrently with serving through localtunnel, might have issues.
+- **`start-lt`** - run development concurrently with serving through localtunnel, should perform well.
+
+
 
 ## Utilities
 
 - [`auth/middleware.ts`](./src/lib/auth/middleware.ts) - Sample middleware for forcing authentication on server functions.
 - [`theme-toggle.tsx`](./src/components/theme-toggle.tsx), [`theme-provider.tsx`](./src/components/theme-provider.tsx) - A theme toggle and provider for toggling between light and dark mode.
 
+
+
 ## License
 
 Code in this template is public domain via [Unlicense](./LICENSE). Feel free to remove or replace for your own project.
+
+
 
 ## Also check out
 
