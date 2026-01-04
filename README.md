@@ -120,6 +120,21 @@ Use one of the following scripts:
 
 
 
+## Using Docker
+
+Create [docker-settings.sh](./devconfig/docker-settings.sh) following the example in [docker-settings.sh.example](./doc/docker-settings.sh.example).
+
+Scripts:
+
+- **`docker:setup`** - Creates common docker objects used by the project. Run once before using the other scripts.
+- **`ocker:build`** - Builds a dockerized version of the application.
+- **`docker:run`** - Runs the built version.
+- **`compose:db:up`** - Starts a database that can be used by `docker run`.
+- **`compose:db:down`** - Destroys the database used by `docker run`.
+- **`docker:remove`** - Removes (some) of the docker objects created for the project.
+
+
+
 ## Utilities
 
 - [`auth/middleware.ts`](./src/lib/auth/middleware.ts) - Sample middleware for forcing authentication on server functions.

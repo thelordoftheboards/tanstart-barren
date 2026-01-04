@@ -10,6 +10,12 @@ services:
     volumes:
       - postgres_data_tanstart_barren:/var/lib/postgresql
     restart: unless-stopped
+    networks:
+      - tanstart-barren-development-network
 
 volumes:
   postgres_data_tanstart_barren:
+
+networks:
+  tanstart-barren-development-network:
+    external: true

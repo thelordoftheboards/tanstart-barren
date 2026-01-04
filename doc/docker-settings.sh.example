@@ -1,0 +1,3 @@
+#!/bin/bash
+
+export IMAGE_NAME=tanstart-barren

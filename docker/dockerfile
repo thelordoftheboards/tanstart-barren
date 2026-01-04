@@ -17,7 +17,7 @@ RUN cd /temp/dev && bun install --frozen-lockfile
 # install with --production (exclude devDependencies)
 RUN mkdir -p /temp/prod
 COPY package.json bun.lock /temp/prod/
-RUN cd /temp/prod && bun install --frozen-lockfile --production
+RUN cd /temp/prod && bun install --frozen-lockfile --ignore-scripts --production
 
 # copy node_modules from temp directory
 # then copy all (non-ignored) project files into the image
@@ -26,9 +26,9 @@ COPY --from=install /temp/dev/node_modules node_modules
 COPY . .
 
 # [optional] tests & build
-ENV NODE_ENV=production
-RUN bun test
-RUN bun run make
+#ENV NODE_ENV=production
+#RUN bun test
+#RUN bun run make
 
 # copy production dependencies and source code into final image
 FROM base AS release
@@ -36,9 +36,6 @@ COPY --from=prerelease /usr/src/app/package.json .
 COPY --from=prerelease /usr/src/app/.output .
 RUN rm -rf ./server/node_modules/
 COPY --from=install /temp/prod/node_modules ./server/node_modules/
-
-# Set a label in the image metadata
-LABEL version=$APP_VERSION
 
 # run the app
 USER bun

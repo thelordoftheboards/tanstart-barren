@@ -1,6 +1,6 @@
 {
   "name": "tanstart-barren",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "private": false,
   "type": "module",
   "author": {
@@ -12,7 +12,7 @@
   "scripts": {
     "dev": "vite dev --strictPort --port 8088",
     "dev-lt": "concurrently --names 'vi,lt' --prefix-colors 'blue,yellow' --prefix '{time}-{pid} {name}' '. ./devconfig/localtunnel-settings.sh && bun dev' 'sleep 3 && bun lt' --restart-tries 3 --restart-after exponential 'exit 1'",
-    "lt": ". ./devconfig/localtunnel-settings.sh && ./node_modules/.bin/lt --port 8088 --subdomain $LOCALTUNNEL_SUBDOMAIN --print-requests",
+    "lt": ". ./devconfig/localtunnel-settings.sh && ./node_modules/.bin/lt --port 8088 --subdomain ${LOCALTUNNEL_SUBDOMAIN} --print-requests",
     "make": "bun run clean && bun run format && bun run build && bun run post-build-actions",
     "build": "vite build",
     "post-build-actions": "./devtools/post-build-actions.sh",
@@ -29,9 +29,12 @@
     "ui": "bunx shadcn@latest",
     "auth:secret": "bunx @better-auth/cli@latest secret",
     "auth:generate": "bunx @better-auth/cli@latest generate --config ./src/lib/auth/auth.ts --y --output ./src/lib/db/schema/auth.schema.ts && biome format --write ./src/lib/db/schema/auth.schema.ts",
+    "docker:setup": ". ./devconfig/docker-settings.sh && docker network create \"${IMAGE_NAME}-development-network\"",
     "docker:build": "./devtools/docker-build.sh",
+    "docker:run": ". ./devconfig/docker-settings.sh && docker rm -f \"${IMAGE_NAME}-standalone-app\" || true && docker run -d -p 8088:8088 --env-file .env --network \"${IMAGE_NAME}-development-network\" --name \"${IMAGE_NAME}-standalone-app\" \"${IMAGE_NAME}\"",
     "compose:db:up": "docker compose -f docker/standalone-db-compose.yaml up -d",
     "compose:db:down": "docker compose -f docker/standalone-db-compose.yaml down -v",
+    "docker:remove": ". ./devconfig/docker-settings.sh && docker network rm \"${IMAGE_NAME}-development-network\"",
     "clean": "rm -rf .nitro && rm -rf .tanstack && rm -rf .output",
     "prepare": "husky"
   },
