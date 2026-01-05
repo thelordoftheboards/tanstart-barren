@@ -12,10 +12,13 @@ export default createServerEntry({
 //
 
 const isProduction = process.env.NODE_ENV === 'production';
-const enabledDatabaseAutomaticMigrations = process.env.DATABASE_AUTOMATIC_MIGRATIONS === 'enabled';
+console.log(
+  `[🚀] Starting ${process.env.npm_package_name}:${process.env.npm_package_version} in ${isProduction ? '🏭  Production' : '🏗️  Development'} at ${new Date().toISOString()}.`
+);
 
 async function runMigration() {
   try {
+    const enabledDatabaseAutomaticMigrations = process.env.DATABASE_AUTOMATIC_MIGRATIONS === 'enabled';
     if (enabledDatabaseAutomaticMigrations) {
       const migrationsFolder = resolve(isProduction ? '../drizzle/' : './drizzle/');
       const migrationConfig = { migrationsFolder };

@@ -1,0 +1,30 @@
+name: tanstart-barren-both
+
+services:
+  db:
+    image: pgvector/pgvector:pg18
+    env_file:
+      - full.env
+    ports:
+      - "5440:5432"
+    volumes:
+      - postgres_data_tanstart_barren_full:/var/lib/postgresql
+    restart: unless-stopped
+    networks:
+      - tanstart-barren-full-network
+  app:
+    image: tanstart-barren:latest
+    env_file:
+      - ../.env
+      - full.env
+    ports:
+      - "8088:8088"
+    restart: unless-stopped
+    networks:
+      - tanstart-barren-full-network
+
+volumes:
+  postgres_data_tanstart_barren_full:
+
+networks:
+  tanstart-barren-full-network:

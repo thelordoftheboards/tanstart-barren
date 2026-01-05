@@ -129,8 +129,10 @@ Scripts:
 - **`docker:setup`** - Creates common docker objects used by the project. Run once before using the other scripts.
 - **`ocker:build`** - Builds a dockerized version of the application.
 - **`docker:run`** - Runs the built version.
-- **`compose:db:up`** - Starts a database that can be used by `docker run`.
-- **`compose:db:down`** - Destroys the database used by `docker run`.
+- **`compose:db:up`** - Starts a database that can be used by `bun run`.
+- **`compose:db:down`** - Destroys the database used by `bun run`.
+- **`compose:full:up`** - Starts the database and app server together.
+- **`compose:full:down`** - Destroys the database and app server together.
 - **`docker:remove`** - Removes (some) of the docker objects created for the project.
 
 

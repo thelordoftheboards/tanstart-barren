@@ -1,6 +1,6 @@
 {
   "name": "tanstart-barren",
-  "version": "0.1.8",
+  "version": "0.1.11",
   "private": false,
   "type": "module",
   "author": {
@@ -15,9 +15,10 @@
     "lt": ". ./devconfig/localtunnel-settings.sh && ./node_modules/.bin/lt --port 8088 --subdomain ${LOCALTUNNEL_SUBDOMAIN} --print-requests",
     "make": "bun run clean && bun run format && bun run build && bun run post-build-actions",
     "build": "vite build",
+    "build:bump": "bun pm version patch --no-git-tag-version",
     "post-build-actions": "./devtools/post-build-actions.sh",
     "preview": "vite preview",
-    "start": "cp .env ./.output/server/.env && cd ./.output/server/ && bun index.mjs",
+    "start": "cp .env ./.output/server/.env && cd ./.output/server/ && export NODE_ENV=production && bun index.mjs",
     "start-lt": "concurrently --names 'vi,lt' --prefix-colors 'blue,yellow' --prefix '{time}-{pid} {name}' '. ./devconfig/localtunnel-settings.sh && bun start' 'sleep 3 && bun lt' --restart-tries 3 --restart-after exponential 'exit 1'",
     "format": "biome format --write",
     "lint": "biome lint",
@@ -34,6 +35,8 @@
     "docker:run": ". ./devconfig/docker-settings.sh && docker rm -f \"${IMAGE_NAME}-standalone-app\" || true && docker run -d -p 8088:8088 --env-file .env --network \"${IMAGE_NAME}-development-network\" --name \"${IMAGE_NAME}-standalone-app\" \"${IMAGE_NAME}\"",
     "compose:db:up": "docker compose -f docker/standalone-db-compose.yaml up -d",
     "compose:db:down": "docker compose -f docker/standalone-db-compose.yaml down -v",
+    "compose:full:up": "docker compose -f docker/full-compose.yaml up -d",
+    "compose:full:down": "docker compose -f docker/full-compose.yaml down -v",
     "docker:remove": ". ./devconfig/docker-settings.sh && docker network rm \"${IMAGE_NAME}-development-network\"",
     "clean": "rm -rf .nitro && rm -rf .tanstack && rm -rf .output",
     "prepare": "husky"
