@@ -1,3 +1,5 @@
+/** biome-ignore-all lint/a11y/useValidAnchor: Allow */
+
 import { useMutation } from '@tanstack/react-query';
 import { createFileRoute, Link } from '@tanstack/react-router';
 import { GalleryVerticalEnd, LoaderCircle } from 'lucide-react';
