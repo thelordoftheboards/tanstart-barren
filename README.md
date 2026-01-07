@@ -131,6 +131,8 @@ Also, in order for the build assets to get properly added to the repository, `.g
 #.output
 ```
 
+For the database server the recommended image is `pgvector/pgvector:pg18` and the the mount `/var/lib/postgresql`
+
 
 
 ## Issue watchlist

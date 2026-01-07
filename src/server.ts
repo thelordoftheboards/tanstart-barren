@@ -23,7 +23,7 @@ async function runMigration() {
       const migrationsFolder = resolve(isProduction ? '../drizzle/' : './drizzle/');
       const migrationConfig = { migrationsFolder };
 
-      console.log(`[🏁] Migrations starting using ${migrationsFolder} ...`);
+      console.log(`[🏁] Migrations starting using [${migrationsFolder}] ...`);
 
       await migrate(db, migrationConfig);
 
