@@ -4,6 +4,8 @@
 
 ## Boilerplate for 🏝️ TanStack Start.
 
+Features:
+
 - [Bun](https://bun.com/) runtime
 - [React 19](https://react.dev) + [React Compiler](https://react.dev/learn/react-compiler)
 - [Biome](https://biomejs.dev/formatter/)
@@ -14,12 +16,21 @@
   - [Forms](https://tanstack.com/form/latest)
   - [DevTools](https://tanstack.com/devtools/latest)
 - [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/) + [Base UI](https://base-ui.com/)
-- [Vite 8](https://vite.dev/blog/announcing-vite8-beta) (beta) + [Nitro v3](https://v3.nitro.build/) (nightly)
+- [Vite 8](https://vite.dev/blog/announcing-vite8-beta) (beta) + [Nitro v3](https://v3.nitro.build/) (alpha)
 - [Drizzle ORM](https://orm.drizzle.team/) + [PostgreSQL](https://www.postgresql.org/)
 - [Better Auth](https://www.better-auth.com/)
 
+This boilerplate is part of a family of boilerplates:
+
+| Boilerplate                                                                       | Description                                                                                          |
+|-----------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| [Tanstart Barren](https://github.com/thelordoftheboards/tanstart-barren)          | Barebones boilerplate with Tanstack Start and basic Better Auth.                                     |
+| [Tanstart Cumberland](https://github.com/thelordoftheboards/tanstart-cumberland)  | Includes all from Tanstart Barren, Better Auth with organizations and a side bar for navigation.     |
+| [Tanstart Eddy](https://github.com/thelordoftheboards/tanstart-eddy)              | Includes all from Tanstart Cumberland with examples of CRUD functionality.                           |
+
+
 > [!NOTE]
-> This project is a derivative of [React TanStarter by dotnize](https://github.com/dotnize/react-tanstarter) and [Modern Full-Stack Boilerplate by CarlosZiegler](https://github.com/CarlosZiegler/fullstack-start-template).
+> These projects are derivative of [React TanStarter by dotnize](https://github.com/dotnize/react-tanstarter) and [Modern Full-Stack Boilerplate by CarlosZiegler](https://github.com/CarlosZiegler/fullstack-start-template) as well as various examples given on [TanStack Start](https://tanstack.com/start/latest).
 
 
 
@@ -140,7 +151,7 @@ For the database server the recommended image is `pgvector/pgvector:pg18` and th
 - [Router/Start issues](https://github.com/TanStack/router/issues) - TanStack Start is in RC.
 - [Devtools releases](https://github.com/TanStack/devtools/releases) - TanStack Devtools is in alpha and may still have breaking changes.
 - [Vite 8 beta](https://vite.dev/blog/announcing-vite8-beta) - We're using Vite 8 beta which is powered by Rolldown.
-- [Nitro v3 nightly](https://v3.nitro.build/docs/nightly) - The template is configured with Nitro v3 nightly by default.
+- [Nitro v3 nightly](https://v3.nitro.build/docs/nightly) - The template is configured with Nitro v3 alpha by default, read the nightly documentation.
 
 
 
