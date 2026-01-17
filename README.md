@@ -4,6 +4,34 @@
 
 ## Boilerplate for 🏝️ TanStack Start.
 
+This boilerplate is part of a family of boilerplates:
+
+<table>
+  <tr>
+    <th>Boilerplate</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/thelordoftheboards/tanstart-barren">Tanstart Barren</a></td>
+    <td>Barebones boilerplate with Tanstack Start and basic Better Auth with password auth. Log in/sign on pages, dashboard and home page.</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/thelordoftheboards/tanstart-cumberland">Tanstart Cumberland</a></td>
+    <td>Expands Tanstart Barren with Better Auth with organizations, account and admin screens, side bar for navigation and layout examples.</td>
+  </tr>
+  <tr>
+    <td>Tanstart Dale Hollow (TBD)</td>
+    <td>Expands Tanstart Cumberland with email and mastra integration.</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/thelordoftheboards/tanstart-eddy">Tanstart Eddy</a></td>
+    <td>Expands Tanstart Dale Hollow with examples of CRUD functionality.</td>
+  </tr>
+</table>
+
+> [!NOTE]
+> These boilerplates are derived from [React TanStarter by dotnize](https://github.com/dotnize/react-tanstarter) and [Modern Full-Stack Boilerplate by CarlosZiegler](https://github.com/CarlosZiegler/fullstack-start-template) as well as various examples from [TanStack Start](https://tanstack.com/start/latest) and other sources.
+
 Features:
 
 - [Bun](https://bun.com/) runtime
@@ -20,29 +48,31 @@ Features:
 - [Drizzle ORM](https://orm.drizzle.team/) + [PostgreSQL](https://www.postgresql.org/)
 - [Better Auth](https://www.better-auth.com/)
 
-This boilerplate is part of a family of boilerplates:
-
-| Boilerplate                                                                       | Description                                                                                          |
-|-----------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
-| [Tanstart Barren](https://github.com/thelordoftheboards/tanstart-barren)          | Barebones boilerplate with Tanstack Start and basic Better Auth.                                     |
-| [Tanstart Cumberland](https://github.com/thelordoftheboards/tanstart-cumberland)  | Includes all from Tanstart Barren, Better Auth with organizations and a side bar for navigation.     |
-| [Tanstart Eddy](https://github.com/thelordoftheboards/tanstart-eddy)              | Includes all from Tanstart Cumberland with examples of CRUD functionality.                           |
-
-
-> [!NOTE]
-> These projects are derivative of [React TanStarter by dotnize](https://github.com/dotnize/react-tanstarter) and [Modern Full-Stack Boilerplate by CarlosZiegler](https://github.com/CarlosZiegler/fullstack-start-template) as well as various examples given on [TanStack Start](https://tanstack.com/start/latest).
-
 
 
 ## Development Setup
 
 
 
-### Clone This Repository
+### Clone The Repository
 
 ```bash
 git clone https://github.com/thelordoftheboards/tanstart-barren.git
 ```
+
+or
+
+```bash
+git clone https://github.com/thelordoftheboards/tanstart-cumberland.git
+```
+
+or
+
+```bash
+git clone https://github.com/thelordoftheboards/tanstart-eddy.git
+```
+
+
 
 
 ### Install Dependencies
