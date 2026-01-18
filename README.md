@@ -38,7 +38,7 @@ Features:
 - [React 19](https://react.dev) + [React Compiler](https://react.dev/learn/react-compiler)
 - [Biome](https://biomejs.dev/formatter/)
 - TanStack:
-  - [Start](https://tanstack.com/start/latest)
+  - ![Start Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.dependencies.%40tanstack%2Freact-start&label=@tanstack/react-start) [Tanstack Start](https://tanstack.com/start/latest)
   - [Router](https://tanstack.com/router/latest)
   - [Query](https://tanstack.com/query/latest)
   - [Forms](https://tanstack.com/form/latest)
