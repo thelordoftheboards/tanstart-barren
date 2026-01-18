@@ -34,20 +34,31 @@ This boilerplate is part of a family of boilerplates:
 
 Features:
 
-- [Bun](https://bun.com/) runtime
-- [React 19](https://react.dev) + [React Compiler](https://react.dev/learn/react-compiler)
-- [Biome](https://biomejs.dev/formatter/)
-- TanStack:
-  - ![Start Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.dependencies.%40tanstack%2Freact-start&label=@tanstack/react-start) [Tanstack Start](https://tanstack.com/start/latest)
-  - [Router](https://tanstack.com/router/latest)
-  - [Query](https://tanstack.com/query/latest)
-  - [Forms](https://tanstack.com/form/latest)
-  - [DevTools](https://tanstack.com/devtools/latest)
-- [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/) + [Base UI](https://base-ui.com/)
-- [Vite 8](https://vite.dev/blog/announcing-vite8-beta) (beta) + [Nitro v3](https://v3.nitro.build/) (alpha)
-- [Drizzle ORM](https://orm.drizzle.team/) + [PostgreSQL](https://www.postgresql.org/)
-- [Better Auth](https://www.better-auth.com/)
+- Server:
+  - [Bun](https://bun.com/) runtime
+  - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.dependencies.react&label=react) [React](https://react.dev)
+  - [React Compiler](https://react.dev/learn/react-compiler)
+  - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.dependencies.vite&label=vite) [Vite](https://vite.dev/blog/announcing-vite8-beta)
+  - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.dependencies.nitro&label=nitro) [Nitro](https://v3.nitro.build/)
 
+- Linting and formatting:
+  - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.devDependencies.%40biomejs%2Fbiome&label=@biomejs/biome) [Biome](https://biomejs.dev/formatter/)
+  - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.devDependencies.ultracite&label=ultracite) [Ultracite](https://www.ultracite.ai)
+
+- TanStack:
+  - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.dependencies.%40tanstack%2Freact-start&label=@tanstack/react-start) [TanStack Start](https://tanstack.com/start/latest)
+  - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.dependencies.%40tanstack%2Freact-router&label=@tanstack/react-router) [TanStack Router](https://tanstack.com/router/latest)
+  - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.dependencies.%40tanstack%2Freact-query&label=@tanstack/react-query) [TanStack Query](https://tanstack.com/query/latest)
+  - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.dependencies.%40tanstack%2Freact-form&label=@tanstack/react-form) [TanStack Form](https://tanstack.com/form/latest)
+  - [TanStack DevTools](https://tanstack.com/devtools/latest)
+
+- Data:
+  - [PostgreSQL](https://www.postgresql.org/)
+  - [Drizzle ORM](https://orm.drizzle.team/)
+  - [Better Auth](https://www.better-auth.com/)
+
+- UI:
+  - [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/) + [Base UI](https://base-ui.com/)
 
 
 ## Development Setup
