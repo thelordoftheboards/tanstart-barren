@@ -6,11 +6,20 @@ import { nitro } from 'nitro/vite';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+  define: {
+    APP_VERSION: JSON.stringify(process.env.npm_package_version),
+  },
   resolve: {
     tsconfigPaths: true,
   },
   plugins: [
-    devtools(),
+    devtools({
+      injectSource: {
+        // When using devtools, it injects data-tsd-source attribute. However, react map libre does
+        // not like it when it is injected into its objects, so it is disabled.
+        enabled: false,
+      },
+    }),
     tanstackStart(),
     // https://tanstack.com/start/latest/docs/framework/react/guide/hosting
     nitro({ preset: 'bun' }),

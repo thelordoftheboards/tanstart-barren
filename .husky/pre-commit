@@ -4,6 +4,9 @@ bun test
 # Exit on any error
 set -e
 
+# Format all files first, this helps avoid merge conflicts from unformatted files
+bun format
+
 # Check if there are any staged files
 if [ -z "$(git diff --cached --name-only)" ]; then
   echo "No staged files to format"

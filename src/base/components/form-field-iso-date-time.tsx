@@ -10,7 +10,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '~/components/ui/popover
 import { cn } from '~/lib/utils';
 import { useFieldContext } from '../hooks/form-context';
 
-export default function FormFieldDateTime({
+export default function FormFieldIsoDateTime({
   label,
   className,
   nullable,
@@ -21,15 +21,16 @@ export default function FormFieldDateTime({
   className?: string;
   onChange?: (dtNew: Date | null) => void;
 }) {
-  const field = useFieldContext<Date | null>();
-
+  const field = useFieldContext<string | null>();
   const { value } = field.state;
+
+  const valueAsDate = value ? new Date(value) : null;
 
   const handleDateSelect = (selectedDate: Date | null) => {
     if (selectedDate) {
       const dtNew = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate());
 
-      field.setValue(dtNew);
+      field.setValue(dtNew.toISOString());
       if (onChange) {
         onChange(dtNew);
       }
@@ -52,29 +53,29 @@ export default function FormFieldDateTime({
       throw new Error('unreachable');
     }
 
-    field.setValue(dtNew);
+    field.setValue(dtNew.toISOString());
     if (onChange) {
       onChange(dtNew);
     }
   };
 
   const handleClickHour = (hourNew: number) => {
-    const dtNew = new Date(value ?? Date.now());
+    const dtNew = new Date(valueAsDate ?? Date.now());
 
     dtNew.setHours(hourNew + (dtNew.getHours() >= 12 ? 12 : 0));
 
-    field.setValue(dtNew);
+    field.setValue(dtNew.toISOString());
     if (onChange) {
       onChange(dtNew);
     }
   };
 
   const handleClickMinute = (minuteNew: number) => {
-    const dtNew = new Date(value ?? Date.now());
+    const dtNew = new Date(valueAsDate ?? Date.now());
 
     dtNew.setMinutes(minuteNew);
 
-    field.setValue(dtNew);
+    field.setValue(dtNew.toISOString());
     if (onChange) {
       onChange(dtNew);
     }
@@ -99,13 +100,13 @@ export default function FormFieldDateTime({
             render={
               <Button
                 className="flex-1 justify-start text-left font-normal data-[empty=true]:text-muted-foreground"
-                data-empty={!value}
+                data-empty={!valueAsDate}
                 variant="outline"
               />
             }
           >
             <CalendarIcon />
-            {value ? format(value, 'MM/dd/yy') : <span>Date</span>}
+            {valueAsDate ? format(valueAsDate, 'MM/dd/yy') : <span>Date</span>}
           </PopoverTrigger>
           <PopoverContent className="w-auto p-0" onWheel={(e) => e.stopPropagation()}>
             <Calendar
@@ -114,7 +115,7 @@ export default function FormFieldDateTime({
               mode="single"
               onSelect={handleDateSelect}
               // @ts-expect-error Type [Date | null] is not assignable to type [Date | undefined]
-              selected={value}
+              selected={valueAsDate}
             />
 
             <div className="flex p-2">
@@ -130,13 +131,13 @@ export default function FormFieldDateTime({
             render={
               <Button
                 className="ml-2 flex-1 justify-start pl-2 text-left font-normal data-[empty=true]:text-muted-foreground"
-                data-empty={!value}
+                data-empty={!valueAsDate}
                 variant="outline"
               />
             }
           >
             <ClockIcon />
-            {value ? format(value, 'hh:mm aa') : <span>Time</span>}
+            {valueAsDate ? format(valueAsDate, 'hh:mm aa') : <span>Time</span>}
           </PopoverTrigger>
           <PopoverContent className="w-auto p-0" onWheel={(e) => e.stopPropagation()}>
             <div className="flex flex-col divide-y">
@@ -152,7 +153,8 @@ export default function FormFieldDateTime({
                         onClick={() => handleClickHour(hour === 12 ? 0 : hour)}
                         size="icon"
                         variant={
-                          value && ((hour === 12 && value.getHours() % 12 === 0) || value.getHours() % 12 === hour)
+                          valueAsDate &&
+                          ((hour === 12 && valueAsDate.getHours() % 12 === 0) || valueAsDate.getHours() % 12 === hour)
                             ? 'default'
                             : 'ghost'
                         }
@@ -175,7 +177,7 @@ export default function FormFieldDateTime({
                         key={minute}
                         onClick={() => handleClickMinute(minute)}
                         size="icon"
-                        variant={value && value.getMinutes() === minute ? 'default' : 'ghost'}
+                        variant={valueAsDate && valueAsDate.getMinutes() === minute ? 'default' : 'ghost'}
                       >
                         {minute.toString().padStart(2, '0')}
                       </Button>
@@ -193,7 +195,9 @@ export default function FormFieldDateTime({
                     onClick={() => handleAmPmChange(amPm)}
                     size="icon"
                     variant={
-                      value && ((amPm === 'AM' && value.getHours() < 12) || (amPm === 'PM' && value.getHours() >= 12))
+                      valueAsDate &&
+                      ((amPm === 'AM' && valueAsDate.getHours() < 12) ||
+                        (amPm === 'PM' && valueAsDate.getHours() >= 12))
                         ? 'default'
                         : 'ghost'
                     }
