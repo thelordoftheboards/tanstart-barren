@@ -5,17 +5,21 @@
 // converts radix-ui asChild to base-ui render={} prop
 // bunx jscodeshift -t devtools/deradix.ts . --extensions=tsx --parser=tsx
 
+// @ts-expect-error
 module.exports = function transform(file, api) {
   const j = api.jscodeshift;
   const root = j(file.source);
   let changed = false;
 
+  // @ts-expect-error
   const isEmptyText = (node) => node.type === 'JSXText' && node.value.trim() === '';
 
+  // @ts-expect-error
   root.find(j.JSXElement).forEach((path) => {
     const opening = path.node.openingElement;
     const attrs = opening.attributes || [];
 
+    // @ts-expect-error
     const asIdx = attrs.findIndex((a) => a.type === 'JSXAttribute' && a.name && a.name.name === 'asChild');
     if (asIdx === -1) {
       return; // No asChild prop found
@@ -31,6 +35,7 @@ module.exports = function transform(file, api) {
       return; // asChild={false}, skip
     }
 
+    // @ts-expect-error
     const nonWsChildren = (path.node.children || []).filter((c) => !isEmptyText(c));
 
     // The asChild prop typically expects a single direct child or a single
@@ -113,6 +118,7 @@ module.exports = function transform(file, api) {
 
     // Add or replace the render attribute
     const existingRenderIdx = (opening.attributes || []).findIndex(
+      // @ts-expect-error
       (a) => a.type === 'JSXAttribute' && a.name && a.name.name === 'render'
     );
     if (existingRenderIdx === -1) {
