@@ -8,7 +8,7 @@ This boilerplate is part of a family of boilerplates:
 
 <table>
   <tr>
-    <th>Boilerplate</th>
+    <th>Boilerplate / Starter kit</th>
     <th>Description</th>
   </tr>
   <tr>
@@ -17,20 +17,21 @@ This boilerplate is part of a family of boilerplates:
   </tr>
   <tr>
     <td><a href="https://github.com/thelordoftheboards/tanstart-cumberland">Tanstart Cumberland</a></td>
-    <td>Expands Tanstart Barren with Better Auth with organizations, account and admin screens, side bar for navigation and layout examples.</td>
+    <td>Starter kit that expands Tanstart Barren with Better Auth with organizations, account and admin screens, email, side bar for navigation and layout examples.</td>
   </tr>
   <tr>
-    <td>Tanstart Dale Hollow (TBD)</td>
-    <td>Expands Tanstart Cumberland with email and mastra integration.</td>
+    <td>Tanstart Dale Hollow</td>
+    <td>Starter kit that expands Tanstart Cumberland with maptiler maps and mastra. Not published yet.</td>
   </tr>
   <tr>
     <td><a href="https://github.com/thelordoftheboards/tanstart-eddy">Tanstart Eddy</a></td>
-    <td>Expands Tanstart Dale Hollow with examples of CRUD functionality.</td>
+    <td>Starter kit that expands Tanstart Dale Hollow with examples of CRUD functionality.</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/thelordoftheboards/tanstart-eddy-playwright">Tanstart Eddy Playwright</a></td>
+    <td>E2E tests for Tanstart Eddy.</td>
   </tr>
 </table>
-
-> [!NOTE]
-> These boilerplates are derived from [React TanStarter by dotnize](https://github.com/dotnize/react-tanstarter) and [Modern Full-Stack Boilerplate by CarlosZiegler](https://github.com/CarlosZiegler/fullstack-start-template) as well as various examples from [TanStack Start](https://tanstack.com/start/latest) and other sources.
 
 Features:
 
@@ -56,8 +57,10 @@ Features:
   - [PostgreSQL](https://www.postgresql.org/)
   - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.dependencies.drizzle-orm&label=drizzle-orm) [Drizzle ORM](https://orm.drizzle.team/)
   - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.dependencies.better-auth&label=better-auth) [Better Auth](https://www.better-auth.com/)
+  - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.dependencies.zod&label=zod) [Zod](https://zod.dev/) - TypeScript-first schema validation with static type inference.
 
-- UI:
+- Client/UI:
+  - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.dependencies.redaxios&label=redaxios) [redaxios](https://github.com/developit/redaxios) - Axios has a great API that developers love. Redaxios provides that API in 800 bytes, using native fetch().
   - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.devDependencies.tailwindcss&label=tailwindcss) [Tailwind CSS](https://tailwindcss.com/)
   - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.dependencies.shadcn&label=shadcn) [Shadcn](https://ui.shadcn.com/)
   - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.dependencies.%40base-ui%2Freact&label=@base-ui/react) [Base UI](https://base-ui.com/)
@@ -195,28 +198,6 @@ NODE_ENV=production
 SERVER_HOST=example.com
 ```
 
-Also, if you wish to store the build in the repositoru, in order for the build assets to get properly added to the repository, `.gitignore` will have to be modified:
-
-```bash
-# In our case to we use the .output directory to build the container so it is required in source
-#.output
-```
-
-Also modify `docker-build.sh`:
-
-```bash
-# Uncomment for the build to be happening outisde of docker
-# Run make if the versions do not match
-if [ "${PACKAGE_VERSION}" != "${PACKAGE_VERSION_OUTPUT}" ]; then
-    echo "Version mismatch, running make ..."
-    (cd ${SCRIPT_DIR}/.. && bun run make)
-    echo "Make complete."
-else
-    # Commands to execute if they are the same (optional 'else' block)
-    echo "Versions match, proceeding to build container."
-fi
-```
-
 For the database server the recommended image is `pgvector/pgvector:pg18` and the the mount `/var/lib/postgresql`
 
 
@@ -257,13 +238,6 @@ Use one of the following scripts:
 
 
 
-## Utilities
-
-- [`auth/middleware.ts`](./src/lib/auth/middleware.ts) - Sample middleware for forcing authentication on server functions.
-- [`theme-toggle.tsx`](./src/components/theme-toggle.tsx), [`theme-provider.tsx`](./src/components/theme-provider.tsx) - A theme toggle and provider for toggling between light and dark mode.
-
-
-
 ## License
 
 Code in this template is public domain via [Unlicense](./LICENSE). Feel free to remove or replace for your own project.
@@ -272,7 +246,9 @@ Code in this template is public domain via [Unlicense](./LICENSE). Feel free to 
 
 ## Also check out
 
+- [TanStack Start](https://tanstack.com/start/latest) - Official website.
 - [@tanstack/create-start](https://github.com/TanStack/create-tsrouter-app/blob/main/cli/ts-create-start/README.md) - The official CLI tool from the TanStack team to create Start projects.
 - [awesome-tanstack-start](https://github.com/Balastrong/awesome-tanstack-start) - A curated list of awesome resources for TanStack Start.
-- [React TanStarter](https://github.com/dotnize/react-tanstarter) - minimalist starter project, the starting point for this project.
-- [Modern Full-Stack Boilerplate](https://github.com/CarlosZiegler/fullstack-start-template) - full stack starter project, a place where some of the configuration and ideas are borrowed from.
+- [React TanStarter by dotnize](https://github.com/dotnize/react-tanstarter) - minimalist starter project, the starting point for this collection of boilerplates and starter kits.
+- [Modern Full-Stack Boilerplate by CarlosZiegler](https://github.com/CarlosZiegler/fullstack-start-template) - full stack starter project, starting point for the auth and email functionality in this collection of boilerplates and starter kits.
+- [How to use the Playwright codegen test recorder in Vscode (no code testing with Copilot)](https://www.youtube.com/watch?v=-EccE9TXoVY) - video/YouTube.

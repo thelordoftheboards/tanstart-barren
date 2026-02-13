@@ -21,17 +21,6 @@ PACKAGE_VERSION_OUTPUT=$(jq -r .version ${SCRIPT_DIR}/../.output/server/package.
 echo Package version in source: "${PACKAGE_VERSION}"
 echo Package version in output: "${PACKAGE_VERSION_OUTPUT}"
 
-# Uncomment for the build to be happening outisde of docker
-# Run make if the versions do not match
-#if [ "${PACKAGE_VERSION}" != "${PACKAGE_VERSION_OUTPUT}" ]; then
-#    echo "Version mismatch, running make ..."
-#    (cd ${SCRIPT_DIR}/.. && bun run make)
-#    echo "Make complete."
-#else
-#    # Commands to execute if they are the same (optional 'else' block)
-#    echo "Versions match, proceeding to build container."
-#fi
-
 echo Building: "${IMAGE_NAME}:${PACKAGE_VERSION}"
 
 # Build the image, passing the version as a tag and a build-arg
