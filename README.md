@@ -2,7 +2,7 @@
 
 
 
-## Boilerplate for 🏝️ TanStack Start.
+## 🛥️ Boilerplate for 🏝️ TanStack Start.
 
 This boilerplate is part of a family of boilerplates:
 

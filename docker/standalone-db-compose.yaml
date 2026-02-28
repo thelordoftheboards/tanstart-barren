@@ -19,5 +19,5 @@ volumes:
 
 networks:
   dev-network:
-    name: "${PROJECT_NAME}-standalone-db-network"
+    name: "${PROJECT_NAME}-standalone-network"
     external: true
