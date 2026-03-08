@@ -22,7 +22,7 @@ export default defineConfig({
     }),
     tanstackStart(),
     // https://tanstack.com/start/latest/docs/framework/react/guide/hosting
-    nitro({ preset: 'bun' }),
+    nitro({ preset: 'bun', plugins: ['src/lib/run-migrations-plugin.ts'] }),
     viteReact({
       // https://react.dev/learn/react-compiler
       babel: {
