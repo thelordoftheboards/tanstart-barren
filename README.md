@@ -40,11 +40,11 @@ This boilerplate is part of a family of boilerplates:
 Features:
 
 - Server:
-  - [Bun](https://bun.com/) runtime
-  - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.dependencies.react&label=react) [React](https://react.dev)
-  - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.devDependencies.babel-plugin-react-compiler&label=babel-plugin-react-compiler) [React Compiler](https://react.dev/learn/react-compiler)
-  - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.dependencies.vite&label=vite) [Vite](https://vite.dev/blog/announcing-vite8-beta)
-  - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.dependencies.nitro&label=nitro) [Nitro](https://v3.nitro.build/)
+  - [Bun](https://bun.com/) - Bun is a fast, incrementally adoptable all-in-one JavaScript, TypeScript & JSX toolkit.
+  - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.dependencies.react&label=react) [React](https://react.dev) - The library for web and native user interfaces.
+  - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.devDependencies.babel-plugin-react-compiler&label=babel-plugin-react-compiler) [React Compiler](https://react.dev/learn/react-compiler) - React Compiler is a new build-time tool that automatically optimizes your React app.
+  - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.dependencies.vite&label=vite) [Vite](https://vite.dev/blog/announcing-vite8) - The Build Tool for the Web.
+  - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.dependencies.nitro&label=nitro) [Nitro](https://v3.nitro.build/) - Nitro extends your Vite application with a production-ready server, compatible with any runtime.
 
 - Linting and formatting:
   - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.devDependencies.%40biomejs%2Fbiome&label=@biomejs/biome) [Biome](https://biomejs.dev/formatter/)
