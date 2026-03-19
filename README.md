@@ -58,16 +58,16 @@ Features:
   - [TanStack DevTools](https://tanstack.com/devtools/latest) - form, query, router;
 
 - Data:
-  - [PostgreSQL](https://www.postgresql.org/)
-  - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.dependencies.drizzle-orm&label=drizzle-orm) [Drizzle ORM](https://orm.drizzle.team/)
+  - [PostgreSQL](https://www.postgresql.org/) - The World's Most Advanced Open Source Relational Database.
+  - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.dependencies.drizzle-orm&label=drizzle-orm) [Drizzle ORM](https://orm.drizzle.team/) - ORM for you to ~~settle~~ ship ship ship.
   - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.dependencies.better-auth&label=better-auth) [Better Auth](https://www.better-auth.com/)
   - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.dependencies.zod&label=zod) [Zod](https://zod.dev/) - TypeScript-first schema validation with static type inference.
 
 - Client/UI:
   - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.dependencies.redaxios&label=redaxios) [redaxios](https://github.com/developit/redaxios) - Axios has a great API that developers love. Redaxios provides that API in 800 bytes, using native fetch().
-  - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.devDependencies.tailwindcss&label=tailwindcss) [Tailwind CSS](https://tailwindcss.com/)
-  - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.dependencies.shadcn&label=shadcn) [Shadcn](https://ui.shadcn.com/)
-  - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.dependencies.%40base-ui%2Freact&label=@base-ui/react) [Base UI](https://base-ui.com/)
+  - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.devDependencies.tailwindcss&label=tailwindcss) [Tailwind CSS](https://tailwindcss.com/) - Rapidly build modern websites without ever leaving your HTML. A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.
+  - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.dependencies.shadcn&label=shadcn) [Shadcn](https://ui.shadcn.com/) - The Foundation for your Design System. A set of beautifully designed components that you can customize, extend, and build on. Start here then make it your own. Open Source. Open Code.
+  - ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/thelordoftheboards/tanstart-barren/refs/heads/main/package.json&query=%24.dependencies.%40base-ui%2Freact&label=@base-ui/react) [Base UI](https://base-ui.com/) - Unstyled UI components for building accessible user interfaces.
 
 
 ## Development Setup
