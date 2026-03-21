@@ -12,6 +12,12 @@ services:
     restart: unless-stopped
     networks:
       - dev-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 2s
+      timeout: 5s
+      retries: 10
+      start_period: 3s
   app:
     image: "${PROJECT_NAME}:latest"
     env_file:
@@ -22,6 +28,9 @@ services:
     restart: unless-stopped
     networks:
       - dev-network
+    depends_on:
+      db:
+        condition: service_healthy
 
 volumes:
   postgres_data:
